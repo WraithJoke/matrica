@@ -1,0 +1,54 @@
+def vert(graph):
+    count_v = 0
+    for i in graph:
+        count_v += 1
+    return count_v
+
+def stepen(graph):
+    count_3 = 0
+    for i in graph:
+        deg = 0
+        for j in i:
+            if j > 0:
+                deg += 1
+        if deg == 3:
+            count_3 += 1
+    return count_3
+
+def rebra(graph):
+    count = 0
+    for i in range(len(graph)):
+        for j in range(len(graph[i])):
+            if graph[i][j] > 0:
+                count += 1
+    return count // 2
+
+def summa(graph):
+    s = 0
+    for i in range(len(graph)):
+        for j in range(len(graph[i])):
+            s += graph[i][j]
+    return s // 2
+
+def sosedi(graph):
+    neighbors = 0
+    for i in graph[5]:
+        if i > 0:
+            neighbors += 1
+    return neighbors
+
+graph = [
+    [0, 4, 0, 0, 7, 0, 0],
+    [4, 0, 1, 8, 8, 0, 0],
+    [0, 1, 0, 0, 0, 3, 0],
+    [0, 8, 0, 0, 13, 16, 0],
+    [7, 8, 0, 13, 0, 0, 0],
+    [0, 0, 3, 16, 0, 0, 1],
+    [0, 0, 0, 0, 0, 1, 0]
+]
+
+print(f"2) вершин: {vert(graph)}")
+print(f"3) степень 3 у: {stepen(graph)} вершин")
+print(f"4) ребер: {rebra(graph)}")
+print(f"5) сумма: {summa(graph)}")
+print(f"6) соседей у F: {sosedi(graph)}")
